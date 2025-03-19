@@ -20,7 +20,7 @@ except Exception as e:
     models_loaded = False
     
 
-st.title("Iris Flower Species Prediction App")
+st.title("🌷 Iris Flower Species Prediction App")
 st.write("This application predicts species of flower using Random Forest Model.")
 
 st.sidebar.header("Navigation")
@@ -47,7 +47,7 @@ if page == "Home":
     """)
 
 elif page == "Species Prediction":
-    st.header("Iris Flower Species Prediction")
+    st.header("🌷 Iris Flower Species Prediction")
     
     if models_loaded:
         col1, col2 = st.columns(2)
@@ -65,6 +65,15 @@ elif page == "Species Prediction":
         
         if st.button("Predict Species"):
             prediction = rf_model.predict(features)[0]
-            species_name = label_encoder.inverse_transform([prediction])[0] 
+            species_name = label_encoder.inverse_transform([prediction])[0]
+
+            species_images = {
+                "Iris-setosa": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSLylr-l8efAszpjFlLQDYGXjhnVs7PAEGJqesxy36bgXHSG04ACjYwsgrIYEVVEO4P01FFNvuW13UOZjlQTZwhjQ",
+                "Iris-versicolor": "https://upload.wikimedia.org/wikipedia/commons/2/27/Blue_Flag%2C_Ottawa.jpg",
+                "Iris-virginica": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Iris_virginica.jpg"
+            }
             
-            st.success(f"Predicted Species: {species_name}")
+            st.success(f"🌷Predicted Species: {species_name}")
+
+            if species_name in species_images:
+                st.image(species_images[species_name], caption=species_name, use_container_width=True)
