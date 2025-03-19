@@ -22,7 +22,7 @@ except Exception as e:
 
 st.title("🌷 Iris Flower Species Prediction App")
 st.write("""This application predicts species of flower using Random Forest Model.
-          \tMade by Octavius Sandriago - 2702221135""")
+          \n\tMade by Octavius Sandriago - 2702221135""")
 
 st.sidebar.header("Navigation")
 page = st.sidebar.radio("Select Page:", ["Home", "Species Prediction"])
